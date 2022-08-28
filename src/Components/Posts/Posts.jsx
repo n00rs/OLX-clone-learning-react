@@ -1,5 +1,5 @@
 import Heart from '../../assets/Heart'
-import './Post.css'
+import './Posts.css'
 
 function Posts() {
   return (
