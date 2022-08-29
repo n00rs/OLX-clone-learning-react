@@ -1,6 +1,6 @@
 
-
-function Login() {
+import Login from "../Components/Login/Login";
+function LoginPage() {
   return (
     <div>
         <Login />
@@ -8,4 +8,4 @@ function Login() {
   )
 }
 
-export default Login
+export default LoginPage
