@@ -1,6 +1,6 @@
 import Signup from "../Components/Signup/Signup";
 
-function Signup() {
+function SignupPage() {
   return (
     <div>
         <Signup />
@@ -8,4 +8,4 @@ function Signup() {
   )
 }
 
-export default Signup
+export default SignupPage
