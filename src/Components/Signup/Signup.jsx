@@ -23,21 +23,20 @@ function Signup() {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((result) => {
+    
+    try { 
+      firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
         result.user.updateProfile({ displayName: username }).then(() => {
-
           firebase.firestore().collection(collections.USERCOLLECTECTION).add({
             id: result.user.uid,
             username: username,
             phone: phone,
-          })
-
-            .then(() => {
-              navigate('/login')
-            })
+          }).then(() =>  navigate('/login') )
         })
       })
+    } catch (error) {
+      
+    }
   }
 
 
@@ -101,7 +100,7 @@ function Signup() {
           <br />
           <button>Signup</button>
         </form>
-        <a>Login</a>
+        <a onClick={()=> navigate('/login')}>Login</a>
       </div>
     </div>
   )

@@ -1,19 +1,47 @@
 
 
+import { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FirebaseContext } from '../../Context/FirebaseContext';
+import Logo from '../../olx-logo.png';
+import './Login.css';
+
+
 function Login() {
+    
+    //STATE MANAGEMENT 
+
+    const [email, setEmail] = useState('')
+    const [password, setPassword] = useState('')
+
+
+    const { firebase } = useContext(FirebaseContext)
+const navigate = useNavigate()
+
+    //HANDLING LOGIN
+    const loginHandle = (e) => {
+        e.preventDefault()
+        firebase.auth().signInWithEmailAndPassword(email, password).then(()=>{
+            // alert('loginsuccess')
+            navigate('/')
+        }).catch((err)=>{
+            alert(err.message)
+        })
+    }
     return (
         <div>
             <div className="loginParentDiv">
                 <img width="200px" height="200px" src={Logo}></img>
-                <form>
+                <form onSubmit={loginHandle}>
                     <label htmlFor="fname">Email</label>
                     <br />
                     <input
                         className="input"
                         type="email"
-                        id="fname"
+                        id="email"
                         name="email"
-                        defaultValue="John"
+                        defaultValue={email}
+                        onChange={(e) => setEmail(e.target.value)}
                     />
                     <br />
                     <label htmlFor="lname">Password</label>
@@ -21,15 +49,17 @@ function Login() {
                     <input
                         className="input"
                         type="password"
-                        id="lname"
+                        id="password"
                         name="password"
-                        defaultValue="Doe"
+                        defaultValue={password}
+                        onChange={(e) => setPassword(e.target.value)}
+
                     />
                     <br />
                     <br />
                     <button>Login</button>
                 </form>
-                <a>Signup</a>
+                <a onClick={()=>navigate('/signup')}>Signup</a>
             </div>
         </div>
     )
