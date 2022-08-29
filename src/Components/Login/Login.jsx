@@ -2,7 +2,7 @@
 
 import { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { FirebaseContext } from '../../Context/FirebaseContext';
+import { FirebaseContext } from '../../Context/Context';
 import Logo from '../../olx-logo.png';
 import './Login.css';
 

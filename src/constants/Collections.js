@@ -1,3 +1,4 @@
 export const collections ={
-    USERCOLLECTECTION:'users'
+    USERCOLLECTECTION:'users',
+    PRODUCTCOLLECTION:'products'
 }

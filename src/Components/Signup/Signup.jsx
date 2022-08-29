@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { collections } from '../../constants/Collections'
-import { FirebaseContext } from '../../Context/FirebaseContext'
+import { FirebaseContext } from '../../Context/Context'
 import Logo from '../../olx-logo.png'
 import './Signup.css'
 
@@ -35,7 +35,7 @@ function Signup() {
         })
       })
     } catch (error) {
-      
+      alert(error.message)
     }
   }
 
