@@ -16,25 +16,19 @@ function App() {
   
   
   useEffect(() => {
-    firebase.auth().onAuthStateChanged((user) => {
-      setUser(user)
-    })
-
-
+    firebase.auth().onAuthStateChanged(user => setUser(user))
   }, [])
 
   return (
     <div >
       <Post>
 
-      <Routes>
-        
+      <Routes>   
         <Route path='/' element={<Home />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/login' element={<Login />} />
         <Route path='/add-product' element={<AddProduct />} />
         <Route path='/view-post' element={<ViewPost />} />
-
       </Routes>
 
       </Post>

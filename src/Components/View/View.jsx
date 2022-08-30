@@ -10,6 +10,7 @@ function View() {
   //STATE AND CONTEXT
 
   const [userDetails, setUserDetails] = useState()
+  
   const { postDetails } = useContext(postContext)
   const { firebase } = useContext(FirebaseContext)
 

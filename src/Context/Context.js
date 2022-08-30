@@ -1,8 +1,12 @@
 import { createContext, useState } from "react";
 
-export const FirebaseContext = createContext(null)
 
-export const AuthContext = createContext(null)
+export const FirebaseContext = createContext(null)          // context for firebaseconfig
+
+
+
+export const AuthContext = createContext(null)           //CONTEXT FOR CHECKING AUTHENTICATION OF USER
+
 
 function UserContext(props) {
     const [user, setUser] = useState('pori')
@@ -12,5 +16,6 @@ function UserContext(props) {
         </AuthContext.Provider>
     )
 }
+
 
 export default UserContext 

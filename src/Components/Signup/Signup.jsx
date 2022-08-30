@@ -17,7 +17,7 @@ function Signup() {
   const [phone, setPhone] = useState('')
   const [password, setPassword] = useState('')
 
-  const { firebase } = useContext(FirebaseContext)                 //IMPORTING USECONTEXT
+  const { firebase } = useContext(FirebaseContext)                 //IMPORTING FIREBASE WITH HELP OF  USECONTEXT 
 
   const navigate = useNavigate()
 
@@ -26,22 +26,23 @@ function Signup() {
     
     try { 
       firebase.auth().createUserWithEmailAndPassword(email, password).then((result) => {
+        
         result.user.updateProfile({ displayName: username }).then(() => {
+         
           firebase.firestore().collection(collections.USERCOLLECTECTION).add({
             id: result.user.uid,
             username: username,
             phone: phone,
-          }).then(() =>  navigate('/login') )
-        })
-      })
+          }).then(() =>  navigate('/login')).catch(err=> alert(err.message))
+
+        }).catch(err=> alert(err.message))
+        
+      }).catch(err=> alert(err.message))
+
     } catch (error) {
       alert(error.message)
     }
   }
-
-
-
-
 
 
 

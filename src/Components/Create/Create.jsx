@@ -45,7 +45,7 @@ try {
       uploadDate: date
     })
     navigate('/')
-  })
+  }).catch(err=>alert('please login and try again',err.message))
 } catch (error) {
   alert(error.message)
 }
