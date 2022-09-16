@@ -6,8 +6,7 @@ export const FirebaseContext = createContext(null)          // context for fireb
 
 
 export const AuthContext = createContext(null)           //CONTEXT FOR CHECKING AUTHENTICATION OF USER
-
-
+ 
 function UserContext(props) {
     const [user, setUser] = useState('pori')
     return (
